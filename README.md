@@ -1,5 +1,3 @@
-# ***This the hand-in for sheet7-11***
-
 # QO Homework
 
 ## Compilation
