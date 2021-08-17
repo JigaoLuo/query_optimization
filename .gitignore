@@ -1,0 +1,10 @@
+.vscode/
+.vs/
+_build/
+build/
+.idea/
+bin/
+cmake-build-debug/
+data/
+tests/tests.log
+*.stackdump

@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# QO
+# ---------------------------------------------------------------------------
+
+stages:
+    - build
+    - test
+
+build_debug:
+    stage: build
+    script: 
+        - mkdir -p build
+        - cd build
+        - cmake -DCMAKE_BUILD_TYPE=Debug -GNinja ..
+        - ninja
+    tags:
+        - "ninja-build"
+        - "cmake"
+    artifacts:
+        paths:
+            - ./build/tester
+        expire_in: 1 hrs
+
+tester:
+    stage: test
+    script:
+        - ln -s /opt/data/qo/uni ./data
+        - ./build/tester
+    dependencies:
+        - build_debug
